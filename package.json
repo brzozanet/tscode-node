@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "juice": "nodemon module-02/automat name=juice size=30",
-    "coffe": "nodemon module-02/automat name=coffe size=50"
+    "coffe": "nodemon module-02/automat name=coffe size=50",
+    "code": "nodemon module-02/generator make:class User methods='find,save,delete'"
   },
   "author": "",
   "license": "ISC",

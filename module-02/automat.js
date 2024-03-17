@@ -1,17 +1,44 @@
-const drinkType = process.argv[2];
-const drinkSize = process.argv[3].slice(5);
+// NOTE: version #1
 
-let drinkTypePl;
+// const drinkType = process.argv[2];
+// const drinkSize = process.argv[3].slice(5);
 
-switch (drinkType) {
-  case "name=juice":
-    drinkTypePl = "sok";
+// let drinkTypePl;
+
+// switch (drinkType) {
+//   case "name=juice":
+//     drinkTypePl = "sok";
+//     break;
+//   case "name=coffe":
+//     drinkTypePl = "kawę";
+//     break;
+//   default:
+//     console.log("Wybrano nieprawidłową opcję");
+// }
+
+// const consoleText = `Przygotowuję ${drinkTypePl} o pojemności ${drinkSize} ml.`;
+// console.log(consoleText);
+
+// NOTE: version #2
+
+const options = {};
+const arguments = process.argv.splice(2).forEach((argument) => {
+  const argumentPart = argument.split("=");
+  options[argumentPart[0]] = argumentPart[1];
+});
+
+let drink;
+
+switch (options.name) {
+  case "juice":
+    drink = "sok";
     break;
-  case "name=coffe":
-    drinkTypePl = "kawę";
+  case "coffe":
+    drink = "kawę";
     break;
   default:
     console.log("Wybrano nieprawidłową opcję");
 }
 
-console.log(`Przygotowuję ${drinkTypePl} o pojemności ${drinkSize} ml.`);
+const consoleText = `Przygotowuję ${drink} o pojemności ${options.size} ml.`;
+console.log(consoleText);
